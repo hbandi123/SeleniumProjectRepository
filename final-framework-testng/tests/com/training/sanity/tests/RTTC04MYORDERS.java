@@ -14,6 +14,7 @@ import org.testng.annotations.Test;
 
 import com.training.generics.ScreenShot;
 import com.training.pom.LoginPOM;
+import com.training.pom.MyOrders;
 import com.training.utility.DriverFactory;
 import com.training.utility.DriverNames;
 
@@ -21,9 +22,9 @@ public class RTTC04MYORDERS {
 
 	private WebDriver driver;
 	private String baseUrl;
-	private LoginPOM loginPOM;
+	private MyOrders myOrders;
 	private static Properties properties;
-	private ScreenShot screenShot;
+//	private ScreenShot screenShot;
 
 	@BeforeClass
 	public static void setUpBeforeClass() throws IOException {
@@ -35,9 +36,9 @@ public class RTTC04MYORDERS {
 	@BeforeMethod
 	public void setUp() throws Exception {
 		driver = DriverFactory.getDriver(DriverNames.CHROME);
-		loginPOM = new LoginPOM(driver); 
+		myOrders = new MyOrders(driver); 
 		baseUrl = properties.getProperty("baseURL");
-		screenShot = new ScreenShot(driver); 
+//		screenShot = new ScreenShot(driver); 
 		// open the browser 
 		driver.get(baseUrl);
 		Thread.sleep(5000);
@@ -50,16 +51,16 @@ public class RTTC04MYORDERS {
 	}
 	@Test
 	public void MYORDERS() {
-		loginPOM.clickLoginlink();
-		loginPOM.clickLoginRegister();		
-		loginPOM.sendUserName("H@gmail.com");
-		loginPOM.sendPassword("123456");
-		loginPOM.clickLogin(); 
-		loginPOM.clickAccount(); 
-		loginPOM.clickMYORDER(); 
+		myOrders.clickLoginlink();
+		myOrders.clickLoginRegister();		
+		myOrders.sendUserName("manzoor3@gmail.com");
+		myOrders.sendPassword("1231233");
+		myOrders.clickLogin(); 
+		myOrders.clickAccount(); 
+		myOrders.clickMYORDER(); 
 		
 
-		loginPOM.clickViewOrder();
+		myOrders.clickViewOrder();
 		
 		
 		try {
@@ -113,6 +114,6 @@ String Total=driver.findElement(By.xpath("//div[@class='table-responsive']/table
 
 		System.out.println("Happy Shopping ");
 				
-		screenShot.captureScreenShot("First");
+//		screenShot.captureScreenShot("First");
 	}
 }
