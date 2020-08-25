@@ -2,6 +2,7 @@ package com.training.pom;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
@@ -13,16 +14,40 @@ public class LoginPOM {
 		PageFactory.initElements(driver, this);
 	}
 	
-	@FindBy(id="login")
+	@FindBy(id="input-email")
 	private WebElement userName; 
 	
-	@FindBy(id="password")
+	@FindBy(id="input-password")
 	private WebElement password;
 	
-	@FindBy(id="formLogin_submitAuth")
-	private WebElement loginBtn; 
+		
+	//@FindBy(xpath="//i[@class='fa fa-user-o']")
+	 //private WebElement loginlinkk;
 	
-	public void sendUserName(String userName) {
+	@FindBy(xpath="//li[@class='tb_link dropdown tb_menu_system_account_account']")
+	private WebElement loginlink;
+	
+	@FindBy(xpath="//span[text()='LOGIN / REGISTER']")
+	private WebElement LoginRegister;
+	
+	
+	@FindBy(xpath="//input[@value='Login']")
+	 private WebElement login;
+	
+	@FindBy(xpath="//li[@class='tb_link dropdown tb_menu_system_account_account tb_selected']")
+	 private WebElement Account;
+	
+	@FindBy(xpath="//span[text()='MY ORDERS']")
+	 private WebElement MYORDER;
+	
+	@FindBy(xpath="//a[@class='btn btn-default tb_no_text']")
+	 private WebElement ViewOrder;
+	
+	
+	
+	
+	
+		public void sendUserName(String userName) {
 		this.userName.clear();
 		this.userName.sendKeys(userName);
 	}
@@ -32,7 +57,30 @@ public class LoginPOM {
 		this.password.sendKeys(password); 
 	}
 	
-	public void clickLoginBtn() {
-		this.loginBtn.click(); 
-	}
+	
+public void clickLogin() {
+		this.login.click(); 
 }
+	public void clickLoginlink() {
+		Actions act = new Actions(driver);
+		act.moveToElement(this.loginlink).build().perform();
+	}
+	public void clickLoginRegister() {
+		this.LoginRegister.click(); 
+	}
+	
+	public void clickAccount() {
+		Actions act = new Actions(driver);
+		act.moveToElement(this.Account).build().perform();
+	}
+	public void clickMYORDER() {
+		this.MYORDER.click(); 
+	}
+	public void clickViewOrder() {
+		this.ViewOrder.click(); 
+}
+
+}
+
+
+

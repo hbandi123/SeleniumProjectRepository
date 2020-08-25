@@ -49,7 +49,7 @@ public class LoginTests {
 	public void validLoginTest() {
 		loginPOM.sendUserName("admin");
 		loginPOM.sendPassword("admin@123");
-		loginPOM.clickLoginBtn(); 
+		//loginPOM.clickLoginBtn(); 
 		screenShot.captureScreenShot("First");
 	}
 }
