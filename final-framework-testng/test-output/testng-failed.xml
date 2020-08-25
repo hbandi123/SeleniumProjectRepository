@@ -3,14 +3,14 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com.training.sanity.tests.RTCC06UpdatePASSword">
+      <class name="com.training.sanity.tests.RTTC04MYORDERS">
         <methods>
-          <include name="tearDown"/>
-          <include name="UpdatePassword"/>
           <include name="setUp"/>
+          <include name="tearDown"/>
           <include name="setUpBeforeClass"/>
+          <include name="MYORDERS"/>
         </methods>
-      </class> <!-- com.training.sanity.tests.RTCC06UpdatePASSword -->
+      </class> <!-- com.training.sanity.tests.RTTC04MYORDERS -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
